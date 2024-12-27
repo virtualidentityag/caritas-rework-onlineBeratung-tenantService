@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.1](https://github.com/virtualidentityag/vi-saas-tenantService/compare/v1.9.0...v1.9.1) (2024-12-27)
+
+
+### Bug Fixes
+
+* CARITAS-243 - fix tests before code removal ([54446ee](https://github.com/virtualidentityag/vi-saas-tenantService/commit/54446eeaae59a99d8fbd3c067c0191ba7e5b37da))
+* CARITAS-243 - Remove initializeFeedbackChat and isPeerChat ([be838a5](https://github.com/virtualidentityag/vi-saas-tenantService/commit/be838a5e202c472090203084cfb969df5d68cda3))
+
 ## 1.9.0 (2024-06-18)
 
 
