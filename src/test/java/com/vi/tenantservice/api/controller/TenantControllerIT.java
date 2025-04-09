@@ -259,22 +259,11 @@ class TenantControllerIT {
                     .FullConsultingTypeResponseDTO()
                 .languageFormal(true)
                 .sendFurtherStepsMessage(true)
-                .sendSaveSessionDataMessage(true)
                 .welcomeMessage(
                     new com.vi.tenantservice.consultingtypeservice.generated.web.model
                             .ExtendedConsultingTypeResponseDTOAllOfWelcomeMessage()
                         .welcomeMessageText("welcome")
                         .sendWelcomeMessage(true))
-                .notifications(
-                    new com.vi.tenantservice.consultingtypeservice.generated.web.model
-                            .ExtendedConsultingTypeResponseDTOAllOfNotifications()
-                        .teamSessions(
-                            new com.vi.tenantservice.consultingtypeservice.generated.web.model
-                                    .NotificationsDTOTeamSessions()
-                                .newMessage(
-                                    new com.vi.tenantservice.consultingtypeservice.generated.web
-                                            .model.TeamSessionsDTONewMessage()
-                                        .allTeamConsultants(true))))
                 .isVideoCallAllowed(true));
 
     giveAuthorisationServiceReturnProperAuthoritiesForRole(TENANT_ADMIN);
@@ -293,10 +282,6 @@ class TenantControllerIT {
             jsonPath("settings.extendedSettings.welcomeMessage.sendWelcomeMessage", is(true)))
         .andExpect(
             jsonPath("settings.extendedSettings.welcomeMessage.welcomeMessageText", is("welcome")))
-        .andExpect(
-            jsonPath(
-                "settings.extendedSettings.notifications.teamSessions.newMessage.allTeamConsultants",
-                is(true)))
         .andExpect(
             jsonPath(
                 "content.dataProtectionContactTemplate.de.agencyContext.responsibleContact",

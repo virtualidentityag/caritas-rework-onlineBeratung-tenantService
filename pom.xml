@@ -487,30 +487,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Code style check -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <configLocation>google_checks_light.xml</configLocation>
-                            <failsOnError>false</failsOnError>
-                            <consoleOutput>true</consoleOutput>
-                            <failOnViolation>false</failOnViolation>
-                            <logViolationsToConsole>true</logViolationsToConsole>
-                            <violationSeverity>warning</violationSeverity>
-                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <!-- surefire plugin version managed by Spring Boot -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
