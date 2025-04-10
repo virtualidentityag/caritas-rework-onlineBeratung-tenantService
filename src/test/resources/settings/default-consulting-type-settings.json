@@ -2,7 +2,6 @@
   "tenantId": null,
   "groups": [],
   "slug": "beratung",
-  "excludeNonMainConsultantsFromTeamSessions": false,
   "lockedAgencies": false,
   "whiteSpot": {},
   "groupChat": {
@@ -33,13 +32,6 @@
       ]
     }
   },
-  "notifications": {
-    "teamSessions": {
-      "newMessage": {
-        "allTeamConsultants": false
-      }
-    }
-  },
   "registration": {
     "minPostcodeSize": 5,
     "autoSelectAgency": false,
@@ -61,12 +53,5 @@
   "showAskerProfile": true,
   "isVideoCallAllowed": true,
   "isSubsequentRegistrationAllowed": false,
-  "isAnonymousConversationAllowed": false,
-  "voluntaryComponents": [],
-  "welcomeScreen": {
-    "anonymous": {
-      "title": "Anonym und kostenfrei",
-      "text": "Sie bleiben anonym und erhalten kostenfreie Beratung und Hilfe"
-    }
-  }
+  "voluntaryComponents": []
 }

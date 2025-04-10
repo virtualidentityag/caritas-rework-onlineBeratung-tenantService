@@ -3,11 +3,8 @@ package com.vi.tenantservice.api.converter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.vi.tenantservice.api.model.ConsultingTypePatchDTO;
-import com.vi.tenantservice.consultingtypeservice.generated.web.model.ExtendedConsultingTypeResponseDTOAllOfNotifications;
 import com.vi.tenantservice.consultingtypeservice.generated.web.model.ExtendedConsultingTypeResponseDTOAllOfWelcomeMessage;
 import com.vi.tenantservice.consultingtypeservice.generated.web.model.FullConsultingTypeResponseDTO;
-import com.vi.tenantservice.consultingtypeservice.generated.web.model.NotificationsDTOTeamSessions;
-import com.vi.tenantservice.consultingtypeservice.generated.web.model.TeamSessionsDTONewMessage;
 import org.jeasy.random.EasyRandom;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,12 +29,6 @@ class ConsultingTypePatchDTOConverterTest {
             .sendWelcomeMessage(true)
             .welcomeMessageText("welcome"));
     fullConsultingTypeResponseDTO.setSendFurtherStepsMessage(true);
-    fullConsultingTypeResponseDTO.sendSaveSessionDataMessage(true);
-    fullConsultingTypeResponseDTO.setNotifications(
-        new ExtendedConsultingTypeResponseDTOAllOfNotifications()
-            .teamSessions(
-                new NotificationsDTOTeamSessions()
-                    .newMessage(new TeamSessionsDTONewMessage().allTeamConsultants(true))));
 
     // when
     ConsultingTypePatchDTO consultingTypePatchDTO =
@@ -51,14 +42,6 @@ class ConsultingTypePatchDTOConverterTest {
     assertThat(consultingTypePatchDTO.getIsVideoCallAllowed()).isTrue();
     assertThat(consultingTypePatchDTO.getLanguageFormal()).isTrue();
     assertThat(consultingTypePatchDTO.getSendFurtherStepsMessage()).isTrue();
-    assertThat(consultingTypePatchDTO.getSendSaveSessionDataMessage()).isTrue();
-    assertThat(
-            consultingTypePatchDTO
-                .getNotifications()
-                .getTeamSessions()
-                .getNewMessage()
-                .getAllTeamConsultants())
-        .isTrue();
   }
 
   @Test
@@ -74,7 +57,6 @@ class ConsultingTypePatchDTOConverterTest {
             .sendWelcomeMessage(true)
             .welcomeMessageText("welcome"));
     fullConsultingTypeResponseDTO.setSendFurtherStepsMessage(true);
-    fullConsultingTypeResponseDTO.sendSaveSessionDataMessage(true);
 
     // when
     ConsultingTypePatchDTO consultingTypePatchDTO =
@@ -88,14 +70,6 @@ class ConsultingTypePatchDTOConverterTest {
     assertThat(consultingTypePatchDTO.getIsVideoCallAllowed()).isTrue();
     assertThat(consultingTypePatchDTO.getLanguageFormal()).isTrue();
     assertThat(consultingTypePatchDTO.getSendFurtherStepsMessage()).isTrue();
-    assertThat(consultingTypePatchDTO.getSendSaveSessionDataMessage()).isTrue();
-    assertThat(
-            consultingTypePatchDTO
-                .getNotifications()
-                .getTeamSessions()
-                .getNewMessage()
-                .getAllTeamConsultants())
-        .isNull();
   }
 
   @Test
@@ -114,7 +88,5 @@ class ConsultingTypePatchDTOConverterTest {
         .isEqualTo(source.getWelcomeMessage().getSendWelcomeMessage());
     assertThat(target.getIsVideoCallAllowed()).isEqualTo(source.getIsVideoCallAllowed());
     assertThat(target.getSendFurtherStepsMessage()).isEqualTo(source.getSendFurtherStepsMessage());
-    assertThat(target.getSendSaveSessionDataMessage())
-        .isEqualTo(source.getSendSaveSessionDataMessage());
   }
 }
